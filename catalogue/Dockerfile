@@ -4,4 +4,5 @@ ENV MONGO=true\
     MONGO_URL="mongodb://mongodb:27017/catalogue"
  COPY package.json .
  COPY *.js .
- RUN npm install
+ #RUN npm install
+ CMD [ "npm", "install" ]
