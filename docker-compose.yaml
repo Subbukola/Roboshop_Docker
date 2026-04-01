@@ -15,5 +15,14 @@ services:
     build: ./frontend
     image: frontend:1.0
     container_name: frontend
+    ports:
+      - "80:80"
     depends_on:
       - catalogue
+
+networks:
+  default:
+    name: roboshop
+    driver: bridge
+    external: false
+      
