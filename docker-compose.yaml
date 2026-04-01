@@ -40,6 +40,20 @@ services:
       - user
 
   
+  frontend:
+    build: ./frontend
+    image: frontend:1.0
+    container_name: frontend
+    ports:
+      - "80:80"
+    depends_on:
+      - catalogue
+      - user
+      - cart
+      - shipping
+      - payment
+
+  
   mongodb:
     build: ./mongodb
     image: mongodb:1.0
@@ -54,22 +68,6 @@ services:
     build: ./mysql
     image: mysql:1.0
     container_name: mysql
-
-  
- 
-
-  frontend:
-    build: ./frontend
-    image: frontend:1.0
-    container_name: frontend
-    ports:
-      - "80:80"
-    depends_on:
-      - catalogue
-      - user
-      - cart
-      - shipping
-      - payment
 
   rabbitmq:
     image: rabbitmq:3
