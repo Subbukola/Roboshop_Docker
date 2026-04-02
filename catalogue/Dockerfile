@@ -13,7 +13,6 @@ ENV MONGO=true\
 RUN groupadd -r roboshop && useradd -r -g appgroup -m roboshop
 RUN chown -R roboshop:roboshop /app
 USER roboshop
-
 ENTRYPOINT [ "node"]
 CMD [ "server.js" ]
 
