@@ -10,8 +10,8 @@ WORKDIR /app
 COPY --from=builder /app /app
 ENV MONGO=true\
     MONGO_URL="mongodb://mongodb:27017/catalogue"
-#RUN groupadd -r appgroup && useradd -r -g appgroup -m appuser
-#USER appuser
+RUN groupadd -r roboshop && useradd -r -g appgroup -m roboshop
+USER roboshop
 ENTRYPOINT [ "node"]
 CMD [ "server.js" ]
 
