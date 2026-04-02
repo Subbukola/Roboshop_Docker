@@ -1,14 +1,14 @@
 services:
   catalogue:
     build: ./catalogue
-    image: catalogue:1.0
+    image: subbukola541/catalogue:1.0
     container_name: catalogue
     depends_on:
       - mongodb
 
   user:
     build: ./user
-    image: user:1.0
+    image: subbukola541/user:1.0
     container_name: user
     depends_on:
       - mongodb
@@ -16,7 +16,7 @@ services:
 
   cart:
     build: ./cart
-    image: cart:1.0
+    image: subbukola541/cart:1.0
     container_name: cart
     depends_on:
       - redis
@@ -24,7 +24,7 @@ services:
   
   shipping:
     build: ./shipping
-    image: shipping:1.0
+    image: subbukola541/shipping:1.0
     container_name: shipping
     depends_on:
       - mysql
@@ -32,7 +32,7 @@ services:
 
   payment:
     build: ./payment
-    image: payment:1.0
+    image: subbukola541/payment:1.0
     container_name: payment
     depends_on:
       - rabbitmq
@@ -42,7 +42,7 @@ services:
   
   frontend:
     build: ./frontend
-    image: frontend:1.0
+    image: subbukola541/frontend:1.0
     container_name: frontend
     ports:
       - "80:80"
@@ -56,27 +56,27 @@ services:
   
   mongodb:
     build: ./mongodb
-    image: mongodb:1.0
+    image: subbukola541/mongodb:1.0
     container_name: mongodb
     volumes:
       - mongodb:/data/db
 
   redis:
     #build: ./redis
-    image: redis:7.0
+    image: subbukola541/redis:7.0
     container_name: redis
     volumes:
       - redis:/data
 
   mysql:
     build: ./mysql
-    image: mysql:1.0
+    image: subbukola541/mysql:1.0
     container_name: mysql
     volumes:
       - mysql:/var/lib/mysql
 
   rabbitmq:
-    image: rabbitmq:3
+    image: subbukola541/rabbitmq:3
     environment:
       RABBITMQ_DEFAULT_USER: roboshop
       RABBITMQ_DEFAULT_PASS: roboshop123
