@@ -32,7 +32,7 @@ services:
 
   payment:
     build: ./payment
-    image: payment:1.0
+    image: payment:1.1
     container_name: payment
     depends_on:
       - rabbitmq
